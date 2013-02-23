@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Backbone Tasks</title>
+	<script src="js/lib/jquery-1.9.1.min.js"></script>
+	<script src="js/require-min.js"></script>
+	<script>
+
+		$(document).ready(function(){
+			
+		});
+
+
+		requirejs.config({
+		  baseUrl: 'js',
+
+		  paths: {
+		  	text: 'lib/text'
+		  },
+
+		  shim: {
+		    'lib/underscore-min': {
+		      exports: '_'
+		    },
+		    'lib/backbone-min': {
+		      deps: ['lib/underscore-min']
+		    , exports: 'Backbone'
+		    },
+		    'app': {
+		      deps: ['lib/underscore-min', 'lib/backbone-min']
+		    }
+		  }
+		});
+
+		require([
+		  'app'
+		],
+
+		function(App) {
+		  window.bTask = new App();
+		});
+
+	</script>
+	
+</head>
+<body>
+	
+
+</body>
+</html>
